@@ -1,16 +1,16 @@
 <template>
-  <LogoBanner class="tw:mt-8!" />
-  <VContainer max-width="900">
-    <div>
+  <LogoBanner class="mt-8" />
+  <VContainer class="max-w-full w-full flex flex-col items-center justify-center px-4">
+    <div class="max-w-240">
       <div class="mb-8 text-center">
         <!-- <div class="text-body-2 font-weight-light mb-n1">Welcome to</div> -->
-        <h1 class="text-h2 font-weight-bold">You did it!</h1>
+        <h1 class="text-6xl font-light">You did it!</h1>
       </div>
 
       <VRow>
         <VCol cols="12">
           <VCard
-            class="py-4"
+            class="p-4"
             color="surface-variant"
             image="https://cdn.vuetifyjs.com/docs/images/one/create/feature.png"
             prepend-icon="mdi-rocket-launch-outline"
@@ -37,7 +37,7 @@
         <VCol v-for="link in links" :key="link.href" cols="6">
           <VCard
             append-icon="mdi-open-in-new"
-            class="py-4"
+            class="p-4"
             color="surface-variant"
             :href="link.href"
             :prepend-icon="link.icon"

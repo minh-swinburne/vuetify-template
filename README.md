@@ -9,7 +9,7 @@ A modern Vue 3 project template featuring Vuetify, Vite, TypeScript, Pinia, Vue 
 - **[TypeScript](https://www.typescriptlang.org/)** – Typed JavaScript
 - **[Vuetify](https://vuetifyjs.com/)** – Material Design UI component framework
 - **[Pinia](https://pinia.vuejs.org/)** – State management
-- **[Vue Router](https://router.vuejs.org/)** – Routing
+- **[Vue Router](https://router.vuejs.org/)** – Routing & File-based routing with unplugin-vue-router merged (vue-router 5+)
 - **[VueUse](https://vueuse.org/)** – Collection of essential Vue Composition Utilities (included)
 - **[TailwindCSS](https://tailwindcss.com/)** – Utility-first CSS framework
 - **[Vitest](https://vitest.dev/)** – Unit testing
@@ -20,7 +20,7 @@ A modern Vue 3 project template featuring Vuetify, Vite, TypeScript, Pinia, Vue 
 - **[Unplugin](https://unplugin.unjs.io/)** - Unified plugin system, including:
   - **[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)** – Auto-imports for APIs
   - **[unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)** – Auto-import Vue components
-  - **[unplugin-vue-router](https://github.com/posva/unplugin-vue-router)** – File-based routing
+  <!-- - **[unplugin-vue-router](https://github.com/posva/unplugin-vue-router)** – File-based routing -->
 - **[vite-plugin-vue-layouts-next](https://github.com/loicduong/vite-plugin-vue-layouts-next)** – File-based layouts
 - **[SASS/SCSS](https://sass-lang.com/)** – CSS preprocessor
 - **[Fontsource/Roboto](https://fontsource.org/fonts/roboto)** – Self-hosted fonts
