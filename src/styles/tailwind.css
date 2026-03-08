@@ -1,0 +1,73 @@
+@import "tailwindcss/theme" layer(tailwind-theme);
+@import "tailwindcss/preflight" layer(tailwind-reset);
+@import "tailwindcss/utilities" layer(tailwind-utilities);
+
+/* dark/light mode — Vuetify uses .v-theme--dark/.v-theme--light instead of .dark */
+@custom-variant light (&:where(.v-theme--light, .v-theme--light *));
+@custom-variant dark  (&:where(.v-theme--dark,  .v-theme--dark  *));
+
+@theme {
+  /* Breakpoints */
+  --breakpoint-*: initial; /* reset Tailwind defaults */
+  /* keep in sync with vuetify plugin/config and settings.scss */
+  --breakpoint-xs:  0px;
+  --breakpoint-sm:  600px;
+  --breakpoint-md:  960px;
+  --breakpoint-lg:  1280px;
+  --breakpoint-xl:  1920px;
+  --breakpoint-xxl: 2560px;
+
+  /* Color Theme */
+  --color-background:         rgb(var(--v-theme-background));
+  --color-surface:            rgb(var(--v-theme-surface));
+  --color-surface-variant:    rgb(var(--v-theme-surface-variant));
+  --color-lowest:             rgb(var(--v-theme-lowest));
+  --color-lower:              rgb(var(--v-theme-lower));
+  --color-default:            rgb(var(--v-theme-default));
+  --color-higher:             rgb(var(--v-theme-higher));
+  --color-highest:            rgb(var(--v-theme-highest));
+  --color-muted:              rgb(var(--v-theme-muted));
+  --color-on-background:      rgb(var(--v-theme-on-background));
+  --color-on-surface:         rgb(var(--v-theme-on-surface));
+  --color-on-surface-variant: rgb(var(--v-theme-on-surface-variant));
+
+  --color-primary:            rgb(var(--v-theme-primary));
+  --color-secondary:          rgb(var(--v-theme-secondary));
+  --color-tertiary:           rgb(var(--v-theme-tertiary));
+  --color-success:            rgb(var(--v-theme-success));
+  --color-warning:            rgb(var(--v-theme-warning));
+  --color-error:              rgb(var(--v-theme-error));
+  --color-info:               rgb(var(--v-theme-info));
+  --color-accent:             rgb(var(--v-theme-accent));
+
+  --color-on-primary:         rgb(var(--v-theme-on-primary));
+  --color-on-secondary:       rgb(var(--v-theme-on-secondary));
+  --color-on-tertiary:        rgb(var(--v-theme-on-tertiary));
+  --color-on-success:         rgb(var(--v-theme-on-success));
+  --color-on-warning:         rgb(var(--v-theme-on-warning));
+  --color-on-error:           rgb(var(--v-theme-on-error));
+  --color-on-info:            rgb(var(--v-theme-on-info));
+  --color-on-accent:          rgb(var(--v-theme-on-accent));
+}
+
+/*
+  note: adopt and extend values from TailwindCSS
+*/
+@utility rounded-pill   { border-radius: 9999px }
+@utility rounded-circle { border-radius: 50%    }
+@utility rounded-shaped { border-radius: 24px 0 }
+
+@source inline('rounded'); /* .25rem */
+@source inline('rounded-{none,sm,md,lg,xl,2xl,3xl,full,pill,circle,shaped}');
+
+/*
+  note: adopt elevation shadows from TailwindCSS
+*/
+@utility elevation-0 { box-shadow: none }
+@utility elevation-1 { box-shadow: var(--shadow-xs) }
+@utility elevation-2 { box-shadow: var(--shadow-sm) }
+@utility elevation-3 { box-shadow: var(--shadow-md) }
+@utility elevation-4 { box-shadow: var(--shadow-xl) }
+@utility elevation-5 { box-shadow: var(--shadow-2xl) }
+
+@source inline('elevation-{0,1,2,3,4,5}');

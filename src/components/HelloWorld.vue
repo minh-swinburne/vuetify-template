@@ -10,7 +10,7 @@
       <VRow>
         <VCol cols="12">
           <VCard
-            class="p-4"
+            class="px-2 py-4"
             color="surface-variant"
             image="https://cdn.vuetifyjs.com/docs/images/one/create/feature.png"
             prepend-icon="mdi-rocket-launch-outline"
@@ -37,7 +37,7 @@
         <VCol v-for="link in links" :key="link.href" cols="6">
           <VCard
             append-icon="mdi-open-in-new"
-            class="p-4"
+            class="p-2"
             color="surface-variant"
             :href="link.href"
             :prepend-icon="link.icon"

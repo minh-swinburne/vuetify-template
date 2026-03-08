@@ -42,6 +42,7 @@ export default defineConfig({
     Vue({
       template: { transformAssetUrls },
     }),
+    Tailwindcss(),
     // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
     Vuetify({
       autoImport: true,
@@ -49,7 +50,6 @@ export default defineConfig({
         configFile: 'src/styles/settings.scss',
       },
     }),
-    Tailwindcss(),
     Fonts({
       fontsource: {
         families: [

@@ -6,6 +6,16 @@
 
 // https://vuetifyjs.com/features/sass-variables/`
 @use 'vuetify/settings' with (
-  $color-pack: true,
+  $color-pack: false,
+  $utilities: false,
   // $reset: false,
+  $grid-breakpoints: (
+    // repeated in tailwind.css and vuetify config
+    'xs': 0,
+    'sm': 600px,
+    'md': 960px,
+    'lg': 1280px,
+    'xl': 1920px,
+    'xxl': 2560px,
+  ),
 );
