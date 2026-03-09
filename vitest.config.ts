@@ -1,8 +1,7 @@
 import { fileURLToPath } from 'node:url'
 import { configDefaults, defineConfig, mergeConfig } from 'vitest/config'
-import viteConfig from './vite.config'
+import viteConfig from './vite.config.mts'
 
-// Vitest: test files in ./tests, exclude ./e2e
 export default mergeConfig(
   viteConfig,
   defineConfig({

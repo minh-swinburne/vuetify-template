@@ -1,17 +1,29 @@
+import router from '../router'
+import i18n from './i18n'
+import { createPinia } from 'pinia'
+import Vue3Toastify, { type ToastContainerOptions } from 'vue3-toastify'
+import 'vue3-toastify/dist/index.css'
+
 /**
  * plugins/index.ts
  *
  * Automatically included in `./src/main.ts`
  */
 
-// Plugins
-import vuetify from './vuetify'
-import pinia from '../stores'
-import router from '../router'
-
 // Types
 import type { App } from 'vue'
 
-export function registerPlugins(app: App) {
-  app.use(vuetify).use(router).use(pinia)
+// Plugins
+import vuetify from './vuetify'
+
+export function registerPlugins (app: App) {
+  app.use(vuetify)
+  app.use(createPinia())
+  app.use(i18n)
+  app.use(router)
+  app.use(Vue3Toastify, {
+    autoClose: 3000,
+    position: 'bottom-right',
+    theme: 'auto',
+  } as ToastContainerOptions)
 }

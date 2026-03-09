@@ -4,18 +4,25 @@
  * Configures SASS variables and Vuetify overwrites
  */
 
-// https://vuetifyjs.com/features/sass-variables/`
 @use 'vuetify/settings' with (
   $color-pack: false,
   $utilities: false,
-  // $reset: false,
+
+  $heading-font-family: var(--font-heading),
+  $body-font-family: var(--font-body),
+
   $grid-breakpoints: (
-    // repeated in tailwind.css and vuetify config
     'xs': 0,
     'sm': 600px,
-    'md': 960px,
-    'lg': 1280px,
-    'xl': 1920px,
-    'xxl': 2560px,
+    'md': 840px,
+    'lg': 1145px,
+    'xl': 1545px,
+    'xxl': 2138px,
+  ),
+  $container-max-widths: (
+    'md': 700px,
+    'lg': 1000px,
+    'xl': 1400px,
+    'xxl': 2000px,
   ),
 );

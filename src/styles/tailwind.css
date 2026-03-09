@@ -2,53 +2,37 @@
 @import "tailwindcss/preflight" layer(tailwind-reset);
 @import "tailwindcss/utilities" layer(tailwind-utilities);
 
-/* dark/light mode — Vuetify uses .v-theme--dark/.v-theme--light instead of .dark */
-@custom-variant light (&:where(.v-theme--light, .v-theme--light *));
-@custom-variant dark  (&:where(.v-theme--dark,  .v-theme--dark  *));
-
 @theme {
-  /* Breakpoints */
-  --breakpoint-*: initial; /* reset Tailwind defaults */
-  /* keep in sync with vuetify plugin/config and settings.scss */
-  --breakpoint-xs:  0px;
-  --breakpoint-sm:  600px;
-  --breakpoint-md:  960px;
-  --breakpoint-lg:  1280px;
-  --breakpoint-xl:  1920px;
-  --breakpoint-xxl: 2560px;
+  --font-heading: "Roboto", sans-serif;
+  --font-body: "Roboto", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
 
-  /* Color Theme */
-  --color-background:         rgb(var(--v-theme-background));
-  --color-surface:            rgb(var(--v-theme-surface));
-  --color-surface-variant:    rgb(var(--v-theme-surface-variant));
-  --color-lowest:             rgb(var(--v-theme-lowest));
-  --color-lower:              rgb(var(--v-theme-lower));
-  --color-default:            rgb(var(--v-theme-default));
-  --color-higher:             rgb(var(--v-theme-higher));
-  --color-highest:            rgb(var(--v-theme-highest));
-  --color-muted:              rgb(var(--v-theme-muted));
-  --color-on-background:      rgb(var(--v-theme-on-background));
-  --color-on-surface:         rgb(var(--v-theme-on-surface));
-  --color-on-surface-variant: rgb(var(--v-theme-on-surface-variant));
+  --color-background: rgb(var(--v-theme-background));
+  --color-surface: rgb(var(--v-theme-surface));
+  --color-on-surface: rgb(var(--v-theme-on-surface));
 
-  --color-primary:            rgb(var(--v-theme-primary));
-  --color-secondary:          rgb(var(--v-theme-secondary));
-  --color-tertiary:           rgb(var(--v-theme-tertiary));
-  --color-success:            rgb(var(--v-theme-success));
-  --color-warning:            rgb(var(--v-theme-warning));
-  --color-error:              rgb(var(--v-theme-error));
-  --color-info:               rgb(var(--v-theme-info));
-  --color-accent:             rgb(var(--v-theme-accent));
+  --color-primary: rgb(var(--v-theme-primary));
+  --color-success: rgb(var(--v-theme-success));
+  --color-info: rgb(var(--v-theme-info));
+  --color-warning: rgb(var(--v-theme-warning));
+  --color-error: rgb(var(--v-theme-error));
 
-  --color-on-primary:         rgb(var(--v-theme-on-primary));
-  --color-on-secondary:       rgb(var(--v-theme-on-secondary));
-  --color-on-tertiary:        rgb(var(--v-theme-on-tertiary));
-  --color-on-success:         rgb(var(--v-theme-on-success));
-  --color-on-warning:         rgb(var(--v-theme-on-warning));
-  --color-on-error:           rgb(var(--v-theme-on-error));
-  --color-on-info:            rgb(var(--v-theme-on-info));
-  --color-on-accent:          rgb(var(--v-theme-on-accent));
+  --breakpoint-*: initial;
+  --breakpoint-xs: 0px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 840px;
+  --breakpoint-lg: 1145px;
+  --breakpoint-xl: 1545px;
+  --breakpoint-xxl: 2138px;
 }
+
+@custom-variant light (&:where(.v-theme--light, .v-theme--light *));
+@custom-variant dark (&:where(.v-theme--dark, .v-theme--dark *));
+
+/* safelist to ensure variables are always available */
+@source inline('font-heading');
+@source inline('font-body');
+@source inline('font-mono');
 
 /*
   note: adopt and extend values from TailwindCSS
@@ -60,14 +44,34 @@
 @source inline('rounded'); /* .25rem */
 @source inline('rounded-{none,sm,md,lg,xl,2xl,3xl,full,pill,circle,shaped}');
 
-/*
-  note: adopt elevation shadows from TailwindCSS
-*/
-@utility elevation-0 { box-shadow: none }
-@utility elevation-1 { box-shadow: var(--shadow-xs) }
-@utility elevation-2 { box-shadow: var(--shadow-sm) }
-@utility elevation-3 { box-shadow: var(--shadow-md) }
-@utility elevation-4 { box-shadow: var(--shadow-xl) }
-@utility elevation-5 { box-shadow: var(--shadow-2xl) }
+/* MD3 elevation */
+@utility elevation-0 {
+  box-shadow: 0px 0px 0px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 0px 0px 0px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 0%, transparent);
+}
+@utility elevation-1 {
+  box-shadow: 0px 1px 2px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 1px 3px 1px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 2%, transparent);
+}
+@utility elevation-2 {
+  box-shadow: 0px 1px 2px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 2px 6px 2px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 4%, transparent);
+}
+@utility elevation-3 {
+  box-shadow: 0px 1px 3px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 4px 8px 3px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 6%, transparent);
+}
+@utility elevation-4 {
+  box-shadow: 0px 2px 3px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 6px 10px 4px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 8%, transparent);
+}
+@utility elevation-5 {
+  box-shadow: 0px 4px 4px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 8px 12px 6px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 10%, transparent);
+}
+@utility elevation-overlay {
+  background-image: linear-gradient(var(--v-elevation-overlay), var(--v-elevation-overlay));
+}
 
+/* safelist for elevation="..." props */
 @source inline('elevation-{0,1,2,3,4,5}');
