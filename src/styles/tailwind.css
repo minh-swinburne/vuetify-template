@@ -3,20 +3,48 @@
 @import "tailwindcss/utilities" layer(tailwind-utilities);
 
 @theme {
+  /* Fonts */
   --font-heading: "Roboto", sans-serif;
   --font-body: "Roboto", sans-serif;
   --font-mono: "Roboto Mono", monospace;
 
-  --color-background: rgb(var(--v-theme-background));
-  --color-surface: rgb(var(--v-theme-surface));
-  --color-on-surface: rgb(var(--v-theme-on-surface));
+  /* Color Theme */
+  --color-background:         rgb(var(--v-theme-background));
+  --color-surface:            rgb(var(--v-theme-surface));
+  --color-surface-variant:    rgb(var(--v-theme-surface-variant));
+  --color-lowest:             rgb(var(--v-theme-lowest));
+  --color-lower:              rgb(var(--v-theme-lower));
+  --color-subtle:             rgb(var(--v-theme-subtle));
+  --color-higher:             rgb(var(--v-theme-higher));
+  --color-highest:            rgb(var(--v-theme-highest));
+  --color-muted:              rgb(var(--v-theme-muted));
+  --color-on-background:      rgb(var(--v-theme-on-background));
+  --color-on-surface:         rgb(var(--v-theme-on-surface));
+  --color-on-surface-variant: rgb(var(--v-theme-on-surface-variant));
 
-  --color-primary: rgb(var(--v-theme-primary));
-  --color-success: rgb(var(--v-theme-success));
-  --color-info: rgb(var(--v-theme-info));
-  --color-warning: rgb(var(--v-theme-warning));
-  --color-error: rgb(var(--v-theme-error));
+  --color-primary:            rgb(var(--v-theme-primary));
+  --color-secondary:          rgb(var(--v-theme-secondary));
+  --color-tertiary:           rgb(var(--v-theme-tertiary));
+  --color-success:            rgb(var(--v-theme-success));
+  --color-warning:            rgb(var(--v-theme-warning));
+  --color-error:              rgb(var(--v-theme-error));
+  --color-info:               rgb(var(--v-theme-info));
+  --color-accent:             rgb(var(--v-theme-accent));
+  --color-light:              rgb(var(--v-theme-light));
+  --color-dark:               rgb(var(--v-theme-dark));
 
+  --color-on-primary:         rgb(var(--v-theme-on-primary));
+  --color-on-secondary:       rgb(var(--v-theme-on-secondary));
+  --color-on-tertiary:        rgb(var(--v-theme-on-tertiary));
+  --color-on-success:         rgb(var(--v-theme-on-success));
+  --color-on-warning:         rgb(var(--v-theme-on-warning));
+  --color-on-error:           rgb(var(--v-theme-on-error));
+  --color-on-info:            rgb(var(--v-theme-on-info));
+  --color-on-accent:          rgb(var(--v-theme-on-accent));
+  --color-on-light:           rgb(var(--v-theme-on-light));
+  --color-on-dark:            rgb(var(--v-theme-on-dark));
+
+  /* Breakpoints */
   --breakpoint-*: initial;
   --breakpoint-xs: 0px;
   --breakpoint-sm: 600px;

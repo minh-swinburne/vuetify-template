@@ -1,6 +1,6 @@
 <template>
   <!-- LogoBanner is auto-imported via unplugin-vue-components -->
-  <LogoBanner class="mt-8" />
+  <LogoBanner class="mt-2!" />
 
   <v-container class="flex items-center justify-center" max-width="900">
     <div class="w-full">
@@ -12,28 +12,45 @@
       /> -->
 
       <div class="mb-8 text-center">
-        <div class="font-light -mb-1">Welcome to</div>
-        <h1 class="text-6xl font-heading font-bold">Vuetify</h1>
+        <div class="font-light mb-1">{{ t('title.subtitle') }}</div>
+        <h1 class="text-6xl font-heading font-bold">{{ t('title.heading') }}</h1>
       </div>
 
       <!-- i18n + Pinia demo row -->
       <div class="flex flex-wrap items-center justify-center gap-4 mb-6">
-        <v-chip prepend-icon="mdi-translate" color="primary" variant="tonal">
+        <v-chip prepend-icon="mdi-translate" color="primary" variant="tonal" class="px-4 py-1">
           {{ t('message.hello') }}
         </v-chip>
 
         <v-btn-toggle v-model="currentLocale" mandatory density="compact" class="rounded-lg bg-surface p-1">
           <v-btn value="en" size="small" class="rounded-lg">EN</v-btn>
           <v-btn value="ja" size="small" class="rounded-lg">JA</v-btn>
+          <v-btn value="vi" size="small" class="rounded-lg">VI</v-btn>
         </v-btn-toggle>
+
+        <v-select
+          v-model="toastType"
+          density="compact"
+          variant="solo"
+          class="no-details"
+          :label="t('toast.select.label')"
+          :items="[
+            { title: t('toast.select.default'), value: 'default' },
+            { title: t('toast.select.loading'), value: 'loading' },
+            { title: t('toast.select.success'), value: 'success' },
+            { title: t('toast.select.warning'), value: 'warning' },
+            { title: t('toast.select.error'), value: 'error' },
+            { title: t('toast.select.info'), value: 'info' },
+          ]"
+          :listProps="{ density: 'compact' }"
+        ></v-select>
 
         <v-btn
           color="success"
-          variant="tonal"
           prepend-icon="mdi-bell-ring-outline"
           @click="showToast"
         >
-          Toast!
+          {{ t('toast.button') }}
         </v-btn>
       </div>
 
@@ -54,14 +71,16 @@
 
           <template #title>
             <h2 class="text-2xl font-medium my-0">
-              Get started
+              {{ t('card.hero.title') }}
             </h2>
           </template>
 
           <template #subtitle>
-            <div class="leading-7">
-              Change this page by updating <v-code>components/HelloWorld.vue</v-code>.
-            </div>
+            <i18n-t keypath="card.hero.subtitle" tag="div" class="leading-7">
+              <template #file>
+                <v-code>components/HelloWorld.vue</v-code>
+              </template>
+            </i18n-t>
           </template>
         </v-card>
 
@@ -101,6 +120,8 @@ import { toast } from 'vue3-toastify'
 // vue-i18n: locale switching demo
 const { t, locale } = useI18n()
 
+const toastType = ref(null)
+
 const currentLocale = computed({
   get: () => locale.value,
   set: (val: string) => { locale.value = val },
@@ -108,37 +129,38 @@ const currentLocale = computed({
 
 // vue3-toastify demo
 function showToast() {
-  toast.success(t('message.hello') + ' 🎉', {
-    position: 'bottom-right',
-  })
+  if (toastType.value && toastType.value in toast)
+    (toast[toastType.value] as (message: string) => void)(t('message.hello') + ' 🎉')
+  else
+    toast(t('message.hello') + ' 🎉')
 }
 
-const links = [
+const links = computed(() => [
   {
     href: 'https://vuetifyjs.com/',
     icon: 'mdi-text',
-    subtitle: 'Learn about all things Vuetify in our documentation.',
-    title: 'Documentation',
+    subtitle: t('card.grid.doc.subtitle'),
+    title: t('card.grid.doc.title'),
   },
   {
     href: 'https://vuetifyjs.com/introduction/why-vuetify/#feature-guides',
     icon: 'mdi-star',
-    subtitle: 'Explore available framework Features.',
-    title: 'Features',
+    subtitle: t('card.grid.feat.subtitle'),
+    title: t('card.grid.feat.title'),
   },
   {
     href: 'https://vuetifyjs.com/components/all',
     icon: 'mdi-widgets-outline',
-    subtitle: 'Discover components in the API Explorer.',
-    title: 'Components',
+    subtitle: t('card.grid.comp.subtitle'),
+    title: t('card.grid.comp.title'),
   },
   {
     href: 'https://discord.vuetifyjs.com',
     icon: 'mdi-account-group-outline',
-    subtitle: 'Connect with Vuetify developers.',
-    title: 'Community',
+    subtitle: t('card.grid.cmty.subtitle'),
+    title: t('card.grid.cmty.title'),
   },
-]
+])
 </script>
 
 <style scoped>

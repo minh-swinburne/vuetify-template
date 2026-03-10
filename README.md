@@ -13,7 +13,7 @@ A modern Vue 3 project template featuring Vuetify 4, Vite, TypeScript, Pinia, Vu
 - **[vue-i18n](https://vue-i18n.intlify.dev/)** – Internationalization
 - **[TailwindCSS](https://tailwindcss.com/)** – Utility-first CSS framework
 - **[Vitest](https://vitest.dev/)** – Unit testing
-- **[vue3-toastify](https://vue3-toastify.js.org/)** – Toast notifications
+- **[vue3-toastify](https://vue3-toastify.js-bridge.com/)** – Toast notifications
 - **[ESLint](https://eslint.org/)** – Linting
 - **[Unplugin](https://unplugin.unjs.io/)** – Unified plugin system, including:
   - **[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)** – Auto-imports for Vue, Router, Pinia APIs
