@@ -22,9 +22,9 @@
           {{ t('message.hello') }}
         </v-chip>
 
-        <v-btn-toggle v-model="currentLocale" mandatory variant="outlined" density="compact">
-          <v-btn value="en" size="small">EN</v-btn>
-          <v-btn value="ja" size="small">JA</v-btn>
+        <v-btn-toggle v-model="currentLocale" mandatory density="compact" class="rounded-lg bg-surface p-1">
+          <v-btn value="en" size="small" class="rounded-lg">EN</v-btn>
+          <v-btn value="ja" size="small" class="rounded-lg">JA</v-btn>
         </v-btn-toggle>
 
         <v-btn
@@ -39,7 +39,7 @@
 
       <div class="grid md:grid-cols-2 gap-4">
         <v-card
-          class="hero-card md:col-span-2"
+          class="hero-card md:col-span-2 flex items-center"
           image="https://cdn.vuetifyjs.com/docs/images/one/create/feature.png"
           rounded="3xl"
           variant="flat"
@@ -49,7 +49,7 @@
           </template>
 
           <template #image>
-            <v-img class="hidden md:flex" position="top right" />
+            <v-img class="hidden md:flex object-contain" position="center right" />
           </template>
 
           <template #title>
