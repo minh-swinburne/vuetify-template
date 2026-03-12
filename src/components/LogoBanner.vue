@@ -7,14 +7,14 @@
           v-for="logo in logos"
           :key="logo.name"
           :href="logo.href"
-          :title="logo.title"
-          target="_blank"
           rel="noopener noreferrer"
+          target="_blank"
+          :title="logo.title"
         >
           <img
-            :src="`/${logo.name}.svg`"
             :alt="logo.title"
             :class="['logo', logo.name]"
+            :src="`/${logo.name}.svg`"
           />
         </a>
       </div>
@@ -36,9 +36,17 @@ const logos = [
   { name: 'vue', title: 'Vue', href: 'https://vuejs.org/' },
   { name: 'vite', title: 'Vite', href: 'https://vite.dev/' },
   { name: 'pinia', title: 'Pinia', href: 'https://pinia.vuejs.org/' },
-  { name: 'vue-i18n', title: 'Vue i18n', href: 'https://vue-i18n.intlify.dev/' },
+  {
+    name: 'vue-i18n',
+    title: 'Vue i18n',
+    href: 'https://vue-i18n.intlify.dev/',
+  },
   { name: 'vitest', title: 'Vitest', href: 'https://vitest.dev/' },
-  { name: 'tailwindcss', title: 'TailwindCSS', href: 'https://tailwindcss.com/' },
+  {
+    name: 'tailwindcss',
+    title: 'TailwindCSS',
+    href: 'https://tailwindcss.com/',
+  },
   { name: 'eslint', title: 'ESLint', href: 'https://eslint.org/' },
   { name: 'unplugin', title: 'Unplugin', href: 'https://unplugin.unjs.io/' },
 ]
@@ -56,25 +64,32 @@ onMounted(() => {
 
     // Wait for images inside the banner to load before measuring
     const waitForImages = (container: HTMLElement) => {
-      const imgs = Array.from(container.querySelectorAll('img')) as HTMLImageElement[]
+      const imgs = Array.from(
+        container.querySelectorAll('img'),
+      ) as HTMLImageElement[]
       if (imgs.length === 0) return Promise.resolve()
-      return Promise.all(imgs.map(img => new Promise<void>(resolve => {
-        if (img.complete && img.naturalWidth !== 0) return resolve()
-        const onLoad = () => {
-          cleanup()
-          resolve()
-        }
-        const onError = () => {
-          cleanup()
-          resolve()
-        }
-        const cleanup = () => {
-          img.removeEventListener('load', onLoad)
-          img.removeEventListener('error', onError)
-        }
-        img.addEventListener('load', onLoad)
-        img.addEventListener('error', onError)
-      })))
+      return Promise.all(
+        imgs.map(
+          (img) =>
+            new Promise<void>((resolve) => {
+              if (img.complete && img.naturalWidth !== 0) return resolve()
+              const onLoad = () => {
+                cleanup()
+                resolve()
+              }
+              const onError = () => {
+                cleanup()
+                resolve()
+              }
+              const cleanup = () => {
+                img.removeEventListener('load', onLoad)
+                img.removeEventListener('error', onError)
+              }
+              img.addEventListener('load', onLoad)
+              img.addEventListener('error', onError)
+            }),
+        ),
+      )
     }
 
     await waitForImages(bannerEl)
@@ -86,14 +101,16 @@ onMounted(() => {
     while (totalWidth < marqueeEl.offsetWidth * 4) {
       const clone = bannerEl.cloneNode(true) as HTMLElement
       clone.setAttribute('aria-hidden', 'true')
-      trackEl.appendChild(clone)
+      trackEl.append(clone)
       totalWidth += bannerWidth
     }
     console.log(bannerWidth, totalWidth, marqueeEl.offsetWidth)
 
     const update = () => {
-      const bannerPaddingLeft = parseFloat(getComputedStyle(bannerEl).paddingLeft) || 0
-      const firstChildHalf = ((bannerEl.children[0] as HTMLElement)?.clientWidth ?? 0) / 2
+      const bannerPaddingLeft =
+        Number.parseFloat(getComputedStyle(bannerEl).paddingLeft) || 0
+      const firstChildHalf =
+        ((bannerEl.children[0] as HTMLElement)?.clientWidth ?? 0) / 2
       let totalTranslate = bannerWidth
       while (totalTranslate < marqueeEl.offsetWidth / 2) {
         totalTranslate += bannerWidth
@@ -105,7 +122,7 @@ onMounted(() => {
     }
 
     update()
-    window.addEventListener("resize", update)
+    window.addEventListener('resize', update)
   })
 })
 </script>
@@ -121,11 +138,23 @@ onMounted(() => {
   display: flex;
   align-items: center;
 
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: 100% 150%;
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: 100% 150%;
@@ -154,7 +183,9 @@ onMounted(() => {
   height: 120px;
   max-width: 140px;
   margin: 0 1.5rem;
-  transition: filter 0.3s, transform 0.3s;
+  transition:
+    filter 0.3s,
+    transform 0.3s;
   will-change: filter, transform;
   opacity: 0.7;
 }

@@ -2,43 +2,43 @@
 Source: https://vue3-toastify.js-bridge.com/usage/how-to-style.html#build-your-own-style-using-the-scss-files
 */
 :root {
-  --toastify-color-light:         var(--color-light);
-  --toastify-color-dark:          var(--color-dark);
-  --toastify-color-info:          var(--color-info);
-  --toastify-color-success:       var(--color-success);
-  --toastify-color-warning:       var(--color-warning);
-  --toastify-color-error:         var(--color-error);
-  --toastify-color-transparent:   rgba(255, 255, 255, 0.7);
+  --toastify-color-light: var(--color-light);
+  --toastify-color-dark: var(--color-dark);
+  --toastify-color-info: var(--color-info);
+  --toastify-color-success: var(--color-success);
+  --toastify-color-warning: var(--color-warning);
+  --toastify-color-error: var(--color-error);
+  --toastify-color-transparent: rgba(255, 255, 255, 0.7);
 
-  --toastify-icon-color-info:     var(--toastify-color-info);
-  --toastify-icon-color-success:  var(--toastify-color-success);
-  --toastify-icon-color-warning:  var(--toastify-color-warning);
-  --toastify-icon-color-error:    var(--toastify-color-error);
+  --toastify-icon-color-info: var(--toastify-color-info);
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-icon-color-warning: var(--toastify-color-warning);
+  --toastify-icon-color-error: var(--toastify-color-error);
 
-  --toastify-toast-width:         320px;
-  --toastify-toast-background:    var(--color-background);
-  --toastify-toast-min-height:    64px;
-  --toastify-toast-max-height:    800px;
-  --toastify-font-family:         var(--font-body);
-  --toastify-z-index:             9999;
+  --toastify-toast-width: 320px;
+  --toastify-toast-background: var(--color-background);
+  --toastify-toast-min-height: 64px;
+  --toastify-toast-max-height: 800px;
+  --toastify-font-family: var(--font-body);
+  --toastify-z-index: 9999;
 
-  --toastify-text-color-light:    var(--color-on-light);
-  --toastify-text-color-dark:     var(--color-on-dark);
+  --toastify-text-color-light: var(--color-on-light);
+  --toastify-text-color-dark: var(--color-on-dark);
 
   /* Used only for colored theme */
-  --toastify-text-color-info:     var(--toastify-color-on-info);
-  --toastify-text-color-success:  var(--toastify-color-on-success);
-  --toastify-text-color-warning:  var(--toastify-color-on-warning);
-  --toastify-text-color-error:    var(--toastify-color-on-error);
+  --toastify-text-color-info: var(--toastify-color-on-info);
+  --toastify-text-color-success: var(--toastify-color-on-success);
+  --toastify-text-color-warning: var(--toastify-color-on-warning);
+  --toastify-text-color-error: var(--toastify-color-on-error);
 
-  --toastify-spinner-color:             var(--color-muted);
-  --toastify-spinner-color-empty-area:  var(--color-subtle);
+  --toastify-spinner-color: var(--color-muted);
+  --toastify-spinner-color-empty-area: var(--color-subtle);
 
   /* Used when no type is provided */
-  --toastify-color-progress-light:    var(--color-primary);
-  --toastify-color-progress-dark:     var(--color-primary);
-  --toastify-color-progress-info:     var(--toastify-color-info);
-  --toastify-color-progress-success:  var(--toastify-color-success);
-  --toastify-color-progress-warning:  var(--toastify-color-warning);
-  --toastify-color-progress-error:    var(--toastify-color-error);
+  --toastify-color-progress-light: var(--color-primary);
+  --toastify-color-progress-dark: var(--color-primary);
+  --toastify-color-progress-info: var(--toastify-color-info);
+  --toastify-color-progress-success: var(--toastify-color-success);
+  --toastify-color-progress-warning: var(--toastify-color-warning);
+  --toastify-color-progress-error: var(--toastify-color-error);
 }

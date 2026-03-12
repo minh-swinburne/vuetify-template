@@ -1,48 +1,48 @@
-@import "tailwindcss/theme" layer(tailwind-theme);
-@import "tailwindcss/preflight" layer(tailwind-reset);
-@import "tailwindcss/utilities" layer(tailwind-utilities);
+@import 'tailwindcss/theme' layer(tailwind-theme);
+@import 'tailwindcss/preflight' layer(tailwind-reset);
+@import 'tailwindcss/utilities' layer(tailwind-utilities);
 
 @theme {
   /* Fonts */
-  --font-heading: "Roboto", sans-serif;
-  --font-body: "Roboto", sans-serif;
-  --font-mono: "Roboto Mono", monospace;
+  --font-heading: 'Roboto', sans-serif;
+  --font-body: 'Roboto', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
 
   /* Color Theme */
-  --color-background:         rgb(var(--v-theme-background));
-  --color-surface:            rgb(var(--v-theme-surface));
-  --color-surface-variant:    rgb(var(--v-theme-surface-variant));
-  --color-lowest:             rgb(var(--v-theme-lowest));
-  --color-lower:              rgb(var(--v-theme-lower));
-  --color-subtle:             rgb(var(--v-theme-subtle));
-  --color-higher:             rgb(var(--v-theme-higher));
-  --color-highest:            rgb(var(--v-theme-highest));
-  --color-muted:              rgb(var(--v-theme-muted));
-  --color-on-background:      rgb(var(--v-theme-on-background));
-  --color-on-surface:         rgb(var(--v-theme-on-surface));
+  --color-background: rgb(var(--v-theme-background));
+  --color-surface: rgb(var(--v-theme-surface));
+  --color-surface-variant: rgb(var(--v-theme-surface-variant));
+  --color-lowest: rgb(var(--v-theme-lowest));
+  --color-lower: rgb(var(--v-theme-lower));
+  --color-subtle: rgb(var(--v-theme-subtle));
+  --color-higher: rgb(var(--v-theme-higher));
+  --color-highest: rgb(var(--v-theme-highest));
+  --color-muted: rgb(var(--v-theme-muted));
+  --color-on-background: rgb(var(--v-theme-on-background));
+  --color-on-surface: rgb(var(--v-theme-on-surface));
   --color-on-surface-variant: rgb(var(--v-theme-on-surface-variant));
 
-  --color-primary:            rgb(var(--v-theme-primary));
-  --color-secondary:          rgb(var(--v-theme-secondary));
-  --color-tertiary:           rgb(var(--v-theme-tertiary));
-  --color-success:            rgb(var(--v-theme-success));
-  --color-warning:            rgb(var(--v-theme-warning));
-  --color-error:              rgb(var(--v-theme-error));
-  --color-info:               rgb(var(--v-theme-info));
-  --color-accent:             rgb(var(--v-theme-accent));
-  --color-light:              rgb(var(--v-theme-light));
-  --color-dark:               rgb(var(--v-theme-dark));
+  --color-primary: rgb(var(--v-theme-primary));
+  --color-secondary: rgb(var(--v-theme-secondary));
+  --color-tertiary: rgb(var(--v-theme-tertiary));
+  --color-success: rgb(var(--v-theme-success));
+  --color-warning: rgb(var(--v-theme-warning));
+  --color-error: rgb(var(--v-theme-error));
+  --color-info: rgb(var(--v-theme-info));
+  --color-accent: rgb(var(--v-theme-accent));
+  --color-light: rgb(var(--v-theme-light));
+  --color-dark: rgb(var(--v-theme-dark));
 
-  --color-on-primary:         rgb(var(--v-theme-on-primary));
-  --color-on-secondary:       rgb(var(--v-theme-on-secondary));
-  --color-on-tertiary:        rgb(var(--v-theme-on-tertiary));
-  --color-on-success:         rgb(var(--v-theme-on-success));
-  --color-on-warning:         rgb(var(--v-theme-on-warning));
-  --color-on-error:           rgb(var(--v-theme-on-error));
-  --color-on-info:            rgb(var(--v-theme-on-info));
-  --color-on-accent:          rgb(var(--v-theme-on-accent));
-  --color-on-light:           rgb(var(--v-theme-on-light));
-  --color-on-dark:            rgb(var(--v-theme-on-dark));
+  --color-on-primary: rgb(var(--v-theme-on-primary));
+  --color-on-secondary: rgb(var(--v-theme-on-secondary));
+  --color-on-tertiary: rgb(var(--v-theme-on-tertiary));
+  --color-on-success: rgb(var(--v-theme-on-success));
+  --color-on-warning: rgb(var(--v-theme-on-warning));
+  --color-on-error: rgb(var(--v-theme-on-error));
+  --color-on-info: rgb(var(--v-theme-on-info));
+  --color-on-accent: rgb(var(--v-theme-on-accent));
+  --color-on-light: rgb(var(--v-theme-on-light));
+  --color-on-dark: rgb(var(--v-theme-on-dark));
 
   /* Breakpoints */
   --breakpoint-*: initial;
@@ -65,40 +65,97 @@
 /*
   note: adopt and extend values from TailwindCSS
 */
-@utility rounded-pill   { border-radius: 9999px }
-@utility rounded-circle { border-radius: 50%    }
-@utility rounded-shaped { border-radius: 24px 0 }
+@utility rounded-pill {
+  border-radius: 9999px;
+}
+@utility rounded-circle {
+  border-radius: 50%;
+}
+@utility rounded-shaped {
+  border-radius: 24px 0;
+}
 
 @source inline('rounded'); /* .25rem */
 @source inline('rounded-{none,sm,md,lg,xl,2xl,3xl,full,pill,circle,shaped}');
 
 /* MD3 elevation */
 @utility elevation-0 {
-  box-shadow: 0px 0px 0px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 0px 0px 0px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
-  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 0%, transparent);
+  box-shadow:
+    0px 0px 0px 0px
+      rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)),
+    0px 0px 0px 0px
+      rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(
+    in srgb,
+    var(--v-elevation-overlay-color) 0%,
+    transparent
+  );
 }
 @utility elevation-1 {
-  box-shadow: 0px 1px 2px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 1px 3px 1px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
-  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 2%, transparent);
+  box-shadow:
+    0px 1px 2px 0px
+      rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)),
+    0px 1px 3px 1px
+      rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(
+    in srgb,
+    var(--v-elevation-overlay-color) 2%,
+    transparent
+  );
 }
 @utility elevation-2 {
-  box-shadow: 0px 1px 2px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 2px 6px 2px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
-  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 4%, transparent);
+  box-shadow:
+    0px 1px 2px 0px
+      rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)),
+    0px 2px 6px 2px
+      rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(
+    in srgb,
+    var(--v-elevation-overlay-color) 4%,
+    transparent
+  );
 }
 @utility elevation-3 {
-  box-shadow: 0px 1px 3px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 4px 8px 3px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
-  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 6%, transparent);
+  box-shadow:
+    0px 1px 3px 0px
+      rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)),
+    0px 4px 8px 3px
+      rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(
+    in srgb,
+    var(--v-elevation-overlay-color) 6%,
+    transparent
+  );
 }
 @utility elevation-4 {
-  box-shadow: 0px 2px 3px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 6px 10px 4px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
-  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 8%, transparent);
+  box-shadow:
+    0px 2px 3px 0px
+      rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)),
+    0px 6px 10px 4px
+      rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(
+    in srgb,
+    var(--v-elevation-overlay-color) 8%,
+    transparent
+  );
 }
 @utility elevation-5 {
-  box-shadow: 0px 4px 4px 0px rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)), 0px 8px 12px 6px rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
-  --v-elevation-overlay: color-mix(in srgb, var(--v-elevation-overlay-color) 10%, transparent);
+  box-shadow:
+    0px 4px 4px 0px
+      rgba(var(--v-shadow-color), var(--v-shadow-key-opacity, 0.3)),
+    0px 8px 12px 6px
+      rgba(var(--v-shadow-color), var(--v-shadow-ambient-opacity, 0.15));
+  --v-elevation-overlay: color-mix(
+    in srgb,
+    var(--v-elevation-overlay-color) 10%,
+    transparent
+  );
 }
 @utility elevation-overlay {
-  background-image: linear-gradient(var(--v-elevation-overlay), var(--v-elevation-overlay));
+  background-image: linear-gradient(
+    var(--v-elevation-overlay),
+    var(--v-elevation-overlay)
+  );
 }
 
 /* safelist for elevation="..." props */

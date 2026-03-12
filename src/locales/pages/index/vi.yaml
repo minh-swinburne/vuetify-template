@@ -1,0 +1,38 @@
+pages:
+  index:
+    heading:
+      subtitle: Chào mừng đến với
+      title: Vuetify 4
+
+    message:
+      hello: Xin chào, Thế giới
+
+    toast:
+      button: Thông báo!
+      select:
+        label: Loại thông báo
+        placeholder: Chọn một loại thông báo
+        default: Mặc định
+        loading: Đang tải
+        success: Thành công
+        warning: Lưu ý
+        error: Lỗi
+        info: Thông tin
+
+    card:
+      hero:
+        title: Bắt đầu
+        subtitle: Thay đổi trang này bằng cách cập nhật {file}.
+      grid:
+        doc:
+          title: Tài liệu
+          subtitle: Tìm hiểu mọi thứ về Vuetify trong tài liệu của chúng tôi.
+        feat:
+          title: Tính năng
+          subtitle: Khám phá các tính năng của framework.
+        comp:
+          title: Các thành phần
+          subtitle: Khám phá các thành phần trong API Explorer.
+        cmty:
+          title: Cộng đồng
+          subtitle: Kết nối với các nhà phát triển Vuetify.

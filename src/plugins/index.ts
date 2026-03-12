@@ -1,7 +1,8 @@
+// Types
+import type { App } from 'vue'
+import { createPinia } from 'pinia'
 import router from '../router'
 import i18n from './i18n'
-import { createPinia } from 'pinia'
-import toastify, { toastifyOptions } from './toastify'
 
 /**
  * plugins/index.ts
@@ -9,13 +10,12 @@ import toastify, { toastifyOptions } from './toastify'
  * Automatically included in `./src/main.ts`
  */
 
-// Types
-import type { App } from 'vue'
+import toastify, { toastifyOptions } from './toastify'
 
 // Plugins
 import vuetify from './vuetify'
 
-export function registerPlugins (app: App) {
+export function registerPlugins(app: App) {
   app.use(vuetify)
   app.use(createPinia())
   app.use(i18n)

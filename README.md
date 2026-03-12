@@ -15,10 +15,12 @@ A modern Vue 3 project template featuring Vuetify 4, Vite, TypeScript, Pinia, Vu
 - **[Vitest](https://vitest.dev/)** – Unit testing
 - **[vue3-toastify](https://vue3-toastify.js-bridge.com/)** – Toast notifications
 - **[ESLint](https://eslint.org/)** – Linting
+- **[Prettier](https://prettier.io/)** – Code formatting
 - **[Unplugin](https://unplugin.unjs.io/)** – Unified plugin system, including:
   - **[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)** – Auto-imports for Vue, Router, Pinia APIs
   - **[unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)** – Auto-import Vue components
   - **[unplugin-vue-router](https://github.com/posva/unplugin-vue-router)** – File-based routing (Merged into Vue Router 5+)
+  - **[@intlify/unplugin-vue-i18n](https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n)** – Locale message pre-compilation (AOT) plugin for vue-i18n
 - **[vite-plugin-vue-layouts-next](https://github.com/loicduong/vite-plugin-vue-layouts-next)** – File-based layouts
 - **[SASS/SCSS](https://sass-lang.com/)** – CSS preprocessor
 - **[Fontsource/Roboto](https://fontsource.org/fonts/roboto)** – Self-hosted fonts
@@ -34,6 +36,7 @@ A modern Vue 3 project template featuring Vuetify 4, Vite, TypeScript, Pinia, Vu
 - Toast notifications with vue3-toastify
 - Unit testing with Vitest (put tests in `./tests`)
 - Linting with ESLint
+- Code formatting with Prettier
 - Ready for rapid prototyping and scalable apps
 
 ## Getting Started
@@ -89,6 +92,19 @@ npm run preview
 ```bash
 npm run lint      # Lint
 npm run lint:fix  # Lint and auto-fix
+```
+
+### Format
+
+```bash
+npm run format        # Format code
+npm run format:check  # Check code formatting
+```
+
+### CI
+
+```bash
+npm run ci  # Run format check, lint, tests, and build
 ```
 
 ### Type Check
@@ -155,7 +171,31 @@ Create new stores in `src/stores/` using Pinia. See the [Pinia Docs](https://pin
 
 ### Internationalization
 
-Edit `src/plugins/i18n.ts` to add new locales and messages. Use `useI18n()` in components to access translations. See the [vue-i18n Docs](https://vue-i18n.intlify.dev/).
+Locale messages live in `src/locales/` as YAML files, mirroring the `src/components/` and `src/pages/` structure. Each folder corresponds to exactly one component or page, and contains one YAML file per language:
+
+```text
+src/locales/
+├── components/         # Mirrors src/components/
+│   └── MyComponent/
+│       ├── en.yaml
+│       └── vi.yaml
+└── pages/              # Mirrors src/pages/
+    └── index/          # Corresponds to src/pages/index.vue
+        ├── en.yaml
+        ├── ja.yaml
+        └── vi.yaml
+```
+
+`@intlify/unplugin-vue-i18n` pre-compiles all YAML files at build time. Since files across all folders are merged into the same locale namespace per language, it is recommended to wrap keys in a top-level namespace to avoid collisions:
+
+```yaml
+# locales/components/MyComponent/en.yaml
+components:
+  myComponent:
+    title: My Component
+```
+
+Then access it as `t('components.myComponent.title')` in the component. Add new locales by adding a new `<lang>.yaml` file in the relevant folder. See the [vue-i18n Docs](https://vue-i18n.intlify.dev/).
 
 ### Testing
 
@@ -172,6 +212,7 @@ Vitest is set up for unit testing. Place your tests in `tests/`. Functions to be
 - [TailwindCSS Documentation](https://tailwindcss.com/)
 - [Vitest Documentation](https://vitest.dev/)
 - [ESLint Documentation](https://eslint.org/)
+- [Prettier Documentation](https://prettier.io/)
 
 ## Useful Utility Packages
 
@@ -179,7 +220,6 @@ Here are some recommended packages you may find helpful for extending this templ
 
 - [VueUse](https://vueuse.org/) – Collection of essential Vue Composition Utilities
 - [Playwright](https://playwright.dev/) – E2E testing
-- [Prettier](https://prettier.io/) – Code formatting
 - [Husky](https://typicode.github.io/husky/) – Git hooks
 - [vue3-marquee](https://github.com/megasanjay/vue3-marquee) – Marquee/scrolling text
 - [vue3-carousel](https://ismail9k.github.io/vue3-carousel/) – Flexible, responsive carousel

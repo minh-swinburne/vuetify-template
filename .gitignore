@@ -1,5 +1,7 @@
-# Other versions
+# Other versions, examples, notes
 versions/
+examples/
+notes/
 
 # User-specific files
 .DS_Store

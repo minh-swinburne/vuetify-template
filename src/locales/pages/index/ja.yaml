@@ -1,0 +1,38 @@
+pages:
+  index:
+    heading:
+      subtitle: ようこそ
+      title: Vuetify 4 へ
+
+    message:
+      hello: こんにちは、世界
+
+    toast:
+      button: トースト！
+      select:
+        label: トーストの種類
+        placeholder: トーストの種類を選択
+        default: デフォルト
+        loading: 読み込み中
+        success: 成功
+        warning: 警告
+        error: エラー
+        info: 情報
+
+    card:
+      hero:
+        title: 始めよう
+        subtitle: このページは、{file} を更新して変更してください。
+      grid:
+        doc:
+          title: ドキュメンテーション
+          subtitle: Vuetifyのドキュメントで詳細を学びましょう。
+        feat:
+          title: 機能
+          subtitle: フレームワークの利用可能な機能を確認しましょう。
+        comp:
+          title: コンポーネント
+          subtitle: APIエクスプローラーでコンポーネントを確認しましょう。
+        cmty:
+          title: コミュニティ
+          subtitle: Vuetifyの開発者とつながりましょう。
