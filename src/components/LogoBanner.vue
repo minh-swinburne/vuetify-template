@@ -13,7 +13,7 @@
         >
           <img
             :alt="logo.title"
-            :class="['logo', logo.name]"
+            :class="['logo', 'h-25 lg:h-30', logo.name]"
             :src="`/${logo.name}.svg`"
           />
         </a>
@@ -180,7 +180,6 @@ onMounted(() => {
 }
 
 .logo {
-  height: 120px;
   max-width: 140px;
   margin: 0 1.5rem;
   transition:
