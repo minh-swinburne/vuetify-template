@@ -1,7 +1,10 @@
 <route lang="yaml">
 meta:
   layout: default
-  bgColor: yellow # accessible via useRouter().currentRoute.value.meta.bgColor
+  pageInfo:
+    title: Home
+    icon: nav-home
+    breadcrumbs: []
 </route>
 
 <template>
@@ -22,22 +25,11 @@ meta:
         <v-chip
           class="px-4 py-1"
           color="primary"
-          prepend-icon="mdi-translate"
+          prepend-icon="$translate"
           variant="tonal"
         >
           {{ tp('message.hello') }}
         </v-chip>
-
-        <v-btn-toggle
-          v-model="currentLocale"
-          class="rounded-lg bg-surface p-1 gap-0.5"
-          density="compact"
-          mandatory
-        >
-          <v-btn class="rounded-lg" size="small" value="en">EN</v-btn>
-          <v-btn class="rounded-lg" size="small" value="ja">JA</v-btn>
-          <v-btn class="rounded-lg" size="small" value="vi">VI</v-btn>
-        </v-btn-toggle>
 
         <v-label class="grow">
           {{ tp('toast.select.label') }}
@@ -45,10 +37,8 @@ meta:
           <v-select
             v-model="toastType"
             class="no-details ml-2"
-            density="compact"
-            variant="solo"
             clearable
-            :placeholder="tp('toast.select.placeholder')"
+            density="compact"
             :items="[
               { title: tp('toast.select.default'), value: 'default' },
               { title: tp('toast.select.loading'), value: 'loading' },
@@ -58,12 +48,14 @@ meta:
               { title: tp('toast.select.info'), value: 'info' },
             ]"
             :list-props="{ density: 'compact' }"
+            :placeholder="tp('toast.select.placeholder')"
+            variant="solo"
           />
         </v-label>
 
         <v-btn
           color="success"
-          prepend-icon="mdi-bell-ring-outline"
+          prepend-icon="$notify-active"
           @click="showToast"
         >
           {{ tp('toast.button') }}
@@ -80,7 +72,7 @@ meta:
           <template #prepend>
             <v-avatar
               class="ml-2 mr-4"
-              icon="mdi-rocket-launch-outline"
+              icon="$hero-rocket"
               size="60"
               variant="tonal"
             />
@@ -126,15 +118,16 @@ meta:
           <template #prepend>
             <v-avatar
               class="ml-2 mr-4"
-              :icon="link.icon"
               size="60"
               variant="tonal"
-            />
+            >
+              <v-icon :icon="link.icon" />
+            </v-avatar>
           </template>
           <template #append>
             <v-icon
               class="ml-1 opacity-0 transition group-hover:opacity-90 group-hover:-translate-x-1"
-              icon="mdi-open-in-new"
+              icon="$open-external"
             />
           </template>
           <template #subtitle>
@@ -150,16 +143,16 @@ meta:
 import { useI18nPrefix } from '@/composables/useI18nPrefix'
 import { toast } from 'vue3-toastify'
 
-const { tp, kp, locale } = useI18nPrefix('pages.index')
+type LinkItem = {
+  href: string
+  icon: string
+  subtitle: string
+  title: string
+}
+
+const { tp, kp } = useI18nPrefix('pages.index')
 
 const toastType = ref(null)
-
-const currentLocale = computed({
-  get: () => locale.value,
-  set: (val: string) => {
-    locale.value = val
-  },
-})
 
 function showToast() {
   if (toastType.value && toastType.value in toast)
@@ -169,28 +162,28 @@ function showToast() {
   else toast(tp('message.hello') + ' 🎉')
 }
 
-const links = computed(() => [
+const links = computed<LinkItem[]>(() => [
   {
     href: 'https://vuetifyjs.com/',
-    icon: 'mdi-text',
+    icon: '$docs',
     subtitle: tp('card.grid.doc.subtitle'),
     title: tp('card.grid.doc.title'),
   },
   {
     href: 'https://vuetifyjs.com/introduction/why-vuetify/#feature-guides',
-    icon: 'mdi-star',
+    icon: '$features',
     subtitle: tp('card.grid.feat.subtitle'),
     title: tp('card.grid.feat.title'),
   },
   {
     href: 'https://vuetifyjs.com/components/all',
-    icon: 'mdi-widgets-outline',
+    icon: '$components',
     subtitle: tp('card.grid.comp.subtitle'),
     title: tp('card.grid.comp.title'),
   },
   {
     href: 'https://discord.vuetifyjs.com',
-    icon: 'mdi-account-group-outline',
+    icon: '$community',
     subtitle: tp('card.grid.cmty.subtitle'),
     title: tp('card.grid.cmty.title'),
   },

@@ -5,48 +5,62 @@
  */
 
 import { createVuetify } from 'vuetify'
-import '@mdi/font/css/materialdesignicons.css'
+import { aliases, custom } from './iconset'
 import '../styles/layers.css'
 import 'vuetify/styles'
 
-const defaultColorPalette = {
-  // primary:              '#775fff',
-  // 'primary-dark':       '#6250cc',
-  // 'primary-light':      '#b298ff',
-  secondary:            '#a54bff',
-  'secondary-dark':     '#8840d0',
-  'secondary-light':    '#cc99ff',
-  tertiary:             '#00bfa5',
-  'tertiary-dark':      '#009e87',
-  'tertiary-light':     '#3bdbc8',
-  success:              '#34aa52',
-  warning:              '#ffaa00',
-  error:                '#ff2345',
-  info:                 '#2196f3',
-  accent:               '#ff4096',
-  light:                '#ffffff',
-  dark:                 '#202020',
-  'on-primary':         '#ffffff',
-  'on-secondary':       '#ffffff',
-  'on-tertiary':        '#ffffff',
-  'on-success':         '#ffffff',
-  'on-error':           '#ffffff',
-  'on-warning':         '#ffffff',
-  'on-info':            '#ffffff',
-  'on-accent':          '#ffffff',
-  'on-light':           '#545454',
-  'on-dark':            '#aba3ba',
+export const defaultThemeName = 'light' as const
+
+export const defaultThemeColors = {
+  primary:            '#775fff',
+  secondary:          '#c64bff',
+  tertiary:           '#00bfa5',
+  success:            '#34aa52',
+  warning:            '#ffaa00',
+  error:              '#ff2345',
+  info:               '#2196f3',
+  accent:             '#ff4096',
+  light:              '#ffffff',
+  dark:               '#202020',
+  'on-primary':       '#ffffff',
+  'on-secondary':     '#ffffff',
+  'on-tertiary':      '#ffffff',
+  'on-success':       '#ffffff',
+  'on-error':         '#ffffff',
+  'on-warning':       '#ffffff',
+  'on-info':          '#ffffff',
+  'on-accent':        '#ffffff',
+  'on-light':         '#545454',
+  'on-dark':          '#aba3ba',
 }
 
 export default createVuetify({
+  display: {
+    mobileBreakpoint: 'md',
+    thresholds: {
+      xs: 0,
+      sm: 600,
+      md: 840,
+      lg: 1145,
+      xl: 1545,
+      xxl: 2138,
+    },
+  },
+  icons: {
+    aliases,
+    defaultSet: 'custom',
+    sets: {
+      custom,
+    },
+  },
   theme: {
-    defaultTheme: 'system',
+    defaultTheme: defaultThemeName,
     utilities: false,
     themes: {
       light: {
         dark: false,
         colors: {
-          ...defaultColorPalette,
+          ...defaultThemeColors,
           background:           '#f6f4fd',
           surface:              '#ffffff',
           'surface-variant':    '#545454',
@@ -64,7 +78,10 @@ export default createVuetify({
       dark: {
         dark: true,
         colors: {
-          ...defaultColorPalette,
+          ...defaultThemeColors,
+          primary:              '#9380ff',
+          secondary:            '#d270ff',
+          tertiary:             '#00dbbd',
           background:           '#131313',
           surface:              '#202020',
           'surface-variant':    '#aba3ba',
@@ -79,17 +96,6 @@ export default createVuetify({
           'on-surface-variant': '#202020',
         },
       },
-    },
-  },
-  display: {
-    mobileBreakpoint: 'md',
-    thresholds: {
-      xs: 0,
-      sm: 600,
-      md: 840,
-      lg: 1145,
-      xl: 1545,
-      xxl: 2138,
     },
   },
 })

@@ -1,18 +1,21 @@
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
-import tailwindcss from '@tailwindcss/vite'
-import Vue from '@vitejs/plugin-vue'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath, URL } from 'node:url'
-import AutoImport from 'unplugin-auto-import/vite'
-// Plugins
-import Fonts from 'unplugin-fonts/vite'
-import Components from 'unplugin-vue-components/vite'
-// Utilities
-import { defineConfig } from 'vite'
 
+// Plugins
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
+import Tailwindcss from '@tailwindcss/vite'
+import { unheadVueComposablesImports } from '@unhead/vue'
+import Vue from '@vitejs/plugin-vue'
+import AutoImport from 'unplugin-auto-import/vite'
+import Fonts from 'unplugin-fonts/vite'
+import Icons from 'unplugin-icons/vite'
+import Components from 'unplugin-vue-components/vite'
 import Layouts from 'vite-plugin-vue-layouts-next'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import VueRouter from 'vue-router/vite'
+
+// Utilities
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,7 +23,10 @@ export default defineConfig({
     VueRouter({
       dts: 'src/route-map.d.ts',
     }),
-    Layouts(),
+    Layouts({
+      layoutsDirs: 'src/layouts',
+      defaultLayout: 'default',
+    }),
     AutoImport({
       imports: [
         'vue',
@@ -35,9 +41,14 @@ export default defineConfig({
           ],
           pinia: ['defineStore', 'storeToRefs'],
         },
+        unheadVueComposablesImports,
       ],
       dts: 'src/auto-imports.d.ts',
       vueTemplate: true,
+    }),
+    Icons({
+      compiler: 'vue3',
+      autoInstall: true, // Auto-detects npm/yarn/pnpm and installs icon packages when used
     }),
     Components({
       dts: 'src/components.d.ts',
@@ -45,7 +56,7 @@ export default defineConfig({
     Vue({
       template: { transformAssetUrls },
     }),
-    tailwindcss(),
+    Tailwindcss(),
     Vuetify({
       autoImport: true,
       styles: {

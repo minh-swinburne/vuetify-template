@@ -41,6 +41,7 @@ const logos = [
     title: 'Vue i18n',
     href: 'https://vue-i18n.intlify.dev/',
   },
+  { name: 'vueuse', title: 'VueUse', href: 'https://vueuse.org/' },
   { name: 'vitest', title: 'Vitest', href: 'https://vitest.dev/' },
   {
     name: 'tailwindcss',
@@ -49,6 +50,7 @@ const logos = [
   },
   { name: 'eslint', title: 'ESLint', href: 'https://eslint.org/' },
   { name: 'unplugin', title: 'Unplugin', href: 'https://unplugin.unjs.io/' },
+  { name: 'unhead', title: 'Unhead', href: 'https://unhead.unjs.io/' },
 ]
 
 const marquee = ref<HTMLDivElement | null>(null)
@@ -209,6 +211,9 @@ onMounted(() => {
 .logo.vue-i18n:hover {
   filter: drop-shadow(0 0 2em #42b883) drop-shadow(0 0 1em #35495e);
 }
+.logo.vueuse:hover {
+  filter: drop-shadow(0 0 2em #42b883) drop-shadow(0 0 1em #35495e);
+}
 .logo.vitest:hover {
   filter: drop-shadow(0 0 2em #fcc72b) drop-shadow(0 0 1em #729b1b);
 }
@@ -220,6 +225,9 @@ onMounted(() => {
 }
 .logo.unplugin:hover {
   filter: drop-shadow(0 0 2em #d4d4d4) drop-shadow(0 0 1em #a0a0a0);
+}
+.logo.unhead:hover {
+  filter: drop-shadow(0 0 2em #fbbf24) drop-shadow(0 1em 1em #f1d74a);
 }
 
 @keyframes marquee {

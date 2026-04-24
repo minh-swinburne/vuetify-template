@@ -1,29 +1,23 @@
-import {
-  mdiAlertOutline,
-  mdiBellRingOutline,
-  mdiCheckCircleOutline,
-  mdiCloseOctagonOutline,
-  mdiInformationSlabBoxOutline,
-} from '@mdi/js'
-// import { h } from 'vue'
 import Vue3Toastify, {
   type IconProps,
   toast,
   type ToastContainerOptions,
 } from 'vue3-toastify'
 import 'vue3-toastify/dist/index.css'
+import IconMdiAlertOutline from '~icons/mdi/alert-outline'
+import IconMdiBellRingOutline from '~icons/mdi/bell-ring-outline'
+import IconMdiCheckCircleOutline from '~icons/mdi/check-circle-outline'
+import IconMdiCloseOctagonOutline from '~icons/mdi/close-octagon-outline'
+import IconMdiInformationSlabBoxOutline from '~icons/mdi/information-slab-box-outline'
 
-function svgIcon(path: string, color = 'primary') {
-  return h(
-    'svg',
-    {
-      viewBox: '0 0 24 24',
+function iconNode(icon: object, color: string) {
+  return h(icon, {
+    style: {
+      color,
       width: '100%',
       height: '100%',
-      style: `fill: ${color}`,
     },
-    h('path', { d: path }),
-  )
+  })
 }
 
 const toastify = Vue3Toastify
@@ -34,19 +28,19 @@ const toastifyOptions = {
   icon: (props: IconProps) => {
     switch (props.type) {
       case 'default': {
-        return svgIcon(mdiBellRingOutline, 'var(--color-primary)')
+        return iconNode(IconMdiBellRingOutline, 'var(--color-primary)')
       }
       case 'info': {
-        return svgIcon(mdiInformationSlabBoxOutline, 'var(--color-info)')
+        return iconNode(IconMdiInformationSlabBoxOutline, 'var(--color-info)')
       }
       case 'success': {
-        return svgIcon(mdiCheckCircleOutline, 'var(--color-success)')
+        return iconNode(IconMdiCheckCircleOutline, 'var(--color-success)')
       }
       case 'error': {
-        return svgIcon(mdiCloseOctagonOutline, 'var(--color-error)')
+        return iconNode(IconMdiCloseOctagonOutline, 'var(--color-error)')
       }
       case 'warning': {
-        return svgIcon(mdiAlertOutline, 'var(--color-warning)')
+        return iconNode(IconMdiAlertOutline, 'var(--color-warning)')
       }
       default: {
         return undefined
