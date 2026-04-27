@@ -5,6 +5,7 @@
         :aria-label="tooltipText"
         :icon="icon"
         v-bind="props"
+        rounded="full"
         @click="appStore.cycleTheme"
       />
     </template>

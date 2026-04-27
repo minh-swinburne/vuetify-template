@@ -23,6 +23,11 @@
   .v-input.no-details .v-input__details {
     display: none;
   }
+
+  .v-label {
+    overflow: visible;
+    /* Fixes label text being cut off when it overflows the input field */
+  }
 }
 
 :root.font-scale-sm {

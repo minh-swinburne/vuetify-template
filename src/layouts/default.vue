@@ -85,7 +85,7 @@
         <v-text-field
           class="ml-4 hidden max-w-120 md:block"
           clearable
-          density="comfortable"
+          density="compact"
           hide-details
           placeholder="Search pages..."
           prepend-inner-icon="$search"
@@ -99,7 +99,7 @@
 
         <v-menu>
           <template #activator="{ props }">
-            <v-btn icon="$notify" v-bind="props" />
+            <v-btn icon="$notify" v-bind="props" rounded="full" />
           </template>
           <v-list density="comfortable" min-width="220">
             <v-list-item title="No new notifications" />
@@ -108,7 +108,7 @@
 
         <v-menu>
           <template #activator="{ props }">
-            <v-btn icon="$user-circle" v-bind="props" />
+            <v-btn icon="$user-circle" v-bind="props" rounded="full" />
           </template>
           <v-list density="comfortable" min-width="220">
             <v-list-item prepend-icon="$user-profile" title="Profile" />

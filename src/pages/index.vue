@@ -198,7 +198,7 @@ const links = computed<LinkItem[]>(() => [
 }
 
 :deep(.v-card) {
-  @apply bg-gray-200;
-  @apply dark:bg-black dark:bg-linear-to-r dark:from-primary/50 dark:to-primary/30 dark:text-white/80;
+  @apply bg-white bg-linear-to-r from-primary/50 to-primary/30 text-black/80;
+  @apply dark:bg-black dark:text-white/80;
 }
 </style>
