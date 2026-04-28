@@ -96,35 +96,20 @@ onMounted(() => {
 
     await waitForImages(bannerEl)
 
-    const bannerWidth = bannerEl.offsetWidth
-    let totalWidth = bannerWidth
+    const updateClones = () => {
+      const targetWidth = marqueeEl.offsetWidth * 2 + bannerEl.offsetWidth
+      let currentTotalWidth = bannerEl.offsetWidth * trackEl.children.length
 
-    // Clone the track enough times for seamless looping
-    while (totalWidth < marqueeEl.offsetWidth * 4) {
-      const clone = bannerEl.cloneNode(true) as HTMLElement
-      clone.setAttribute('aria-hidden', 'true')
-      trackEl.append(clone)
-      totalWidth += bannerWidth
-    }
-    console.log(bannerWidth, totalWidth, marqueeEl.offsetWidth)
-
-    const update = () => {
-      const bannerPaddingLeft =
-        Number.parseFloat(getComputedStyle(bannerEl).paddingLeft) || 0
-      const firstChildHalf =
-        ((bannerEl.children[0] as HTMLElement)?.clientWidth ?? 0) / 2
-      let totalTranslate = bannerWidth
-      while (totalTranslate < marqueeEl.offsetWidth / 2) {
-        totalTranslate += bannerWidth
+      while (currentTotalWidth < targetWidth) {
+        const clone = bannerEl.cloneNode(true) as HTMLElement
+        clone.setAttribute('aria-hidden', 'true')
+        trackEl.append(clone)
+        currentTotalWidth += bannerEl.offsetWidth
       }
-      totalTranslate += totalTranslate - marqueeEl.offsetWidth / 2
-      totalTranslate += bannerPaddingLeft + firstChildHalf
-      console.log(bannerEl, bannerEl.children[0].clientWidth, totalTranslate)
-      trackEl.style.transform = `translateX(-${totalTranslate}px)`
     }
 
-    update()
-    window.addEventListener('resize', update)
+    updateClones()
+    window.addEventListener('resize', updateClones)
   })
 })
 </script>

@@ -83,13 +83,14 @@
         </v-btn>
 
         <v-text-field
-          class="ml-4 hidden max-w-120 md:block"
+          class="app-search ml-4 hidden max-w-120 md:block"
           clearable
           density="compact"
           hide-details
           placeholder="Search pages..."
           prepend-inner-icon="$search"
           variant="solo"
+          flat
         />
 
         <v-spacer />
@@ -217,11 +218,17 @@ watch(
 )
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .app-layout {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+.app-search {
+  :deep(.v-field__overlay) {
+    background: rgb(var(--v-theme-background));
+  }
 }
 
 .main-content {
