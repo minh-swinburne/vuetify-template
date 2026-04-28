@@ -19,7 +19,9 @@
         class="logo-section flex items-center gap-3 overflow-x-hidden border-b border-surface-variant px-4 py-3"
         :class="{ 'justify-center': !isDrawerExpanded }"
       >
-        <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white">
+        <div
+          class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-sm font-bold text-white"
+        >
           V
         </div>
         <span
@@ -37,7 +39,8 @@
               class="group flex items-center gap-3 rounded-lg px-3 py-3 transition-colors duration-200"
               :class="{
                 'bg-primary/12 text-primary': isActiveRoute(item.to),
-                'text-on-surface/50 hover:bg-subtle hover:text-on-surface': !isActiveRoute(item.to),
+                'text-on-surface/50 hover:bg-subtle hover:text-on-surface':
+                  !isActiveRoute(item.to),
               }"
               :title="item.title"
               :to="item.to"
@@ -73,12 +76,13 @@
       }"
     >
       <v-app-bar border class="sticky top-0 z-30" flat>
-        <v-app-bar-nav-icon
-          v-if="mdAndDown"
-          @click.stop="toggleMobileDrawer"
-        />
+        <v-app-bar-nav-icon v-if="mdAndDown" @click.stop="toggleMobileDrawer" />
 
-        <v-btn class="hidden font-heading text-none md:flex" to="/" variant="text">
+        <v-btn
+          class="hidden font-heading text-none md:flex"
+          to="/"
+          variant="text"
+        >
           Vuetify Template
         </v-btn>
 
@@ -126,7 +130,11 @@
             <v-breadcrumbs v-if="breadcrumbs.length > 0" :items="breadcrumbs" />
 
             <div class="flex items-center gap-2">
-              <v-icon v-if="pageInfo.icon" class="text-2xl mr-2" :icon="pageInfo.icon" />
+              <v-icon
+                v-if="pageInfo.icon"
+                class="text-2xl mr-2"
+                :icon="pageInfo.icon"
+              />
               <h1 class="my-0 text-2xl font-heading font-semibold">
                 {{ pageInfo.title }}
               </h1>

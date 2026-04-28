@@ -15,7 +15,7 @@ meta:
     <div class="w-full">
       <div class="mb-8 text-center">
         <div class="font-light mb-1">{{ tp('heading.subtitle') }}</div>
-        <h1 class="text-6xl font-heading font-bold">
+        <h1 class="text-6xl text-primary font-heading font-bold">
           {{ tp('heading.title') }}
         </h1>
       </div>
@@ -53,11 +53,7 @@ meta:
           />
         </v-label>
 
-        <v-btn
-          color="success"
-          prepend-icon="$notify-active"
-          @click="showToast"
-        >
+        <v-btn color="success" prepend-icon="$notify-active" @click="showToast">
           {{ tp('toast.button') }}
         </v-btn>
       </div>
@@ -116,11 +112,7 @@ meta:
           variant="flat"
         >
           <template #prepend>
-            <v-avatar
-              class="ml-2 mr-4"
-              size="60"
-              variant="tonal"
-            >
+            <v-avatar class="ml-2 mr-4" size="60" variant="tonal">
               <v-icon :icon="link.icon" />
             </v-avatar>
           </template>
@@ -195,10 +187,5 @@ const links = computed<LinkItem[]>(() => [
 
 .hero-card {
   @apply py-3 md:pr-30 w-full transition-none;
-}
-
-:deep(.v-card) {
-  @apply bg-white bg-linear-to-r from-primary/50 to-primary/30 text-black/80;
-  @apply dark:bg-black dark:text-white/80;
 }
 </style>

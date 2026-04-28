@@ -67,12 +67,7 @@ export const useAppStore = defineStore(
   {
     persist: {
       key: 'vuetify-template-app',
-      pick: [
-        'themeMode',
-        'locale',
-        'fontScale',
-        'contrastMode',
-      ],
+      pick: ['themeMode', 'locale', 'fontScale', 'contrastMode'],
     },
   },
 )

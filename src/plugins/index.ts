@@ -16,7 +16,6 @@ import router from '../router'
 import i18n from './i18n'
 import toastify, { toastifyOptions } from './toastify'
 
-
 export function registerPlugins(app: App) {
   const pinia = createPinia()
   pinia.use(piniaPluginPersistedstate)
