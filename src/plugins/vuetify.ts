@@ -6,7 +6,7 @@
 
 import { createVuetify } from 'vuetify'
 import { aliases, custom } from './iconset'
-import '../styles/layers.css'
+import '../styles/layers.scss'
 import 'vuetify/styles'
 
 export const defaultThemeName = 'light' as const

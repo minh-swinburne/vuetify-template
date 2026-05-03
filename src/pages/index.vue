@@ -183,7 +183,7 @@ const links = computed<LinkItem[]>(() => [
 </script>
 
 <style scoped>
-@reference "../styles/tailwind.css";
+@reference "../styles/tailwind.scss";
 
 .hero-card {
   @apply py-3 md:pr-30 w-full transition-none;
