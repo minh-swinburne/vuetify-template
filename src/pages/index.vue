@@ -15,6 +15,7 @@ meta:
     <div class="w-full">
       <div class="mb-8 text-center">
         <div class="font-light mb-1">{{ tp('heading.subtitle') }}</div>
+
         <h1 class="text-6xl text-primary font-heading font-bold">
           {{ tp('heading.title') }}
         </h1>
@@ -116,12 +117,14 @@ meta:
               <v-icon :icon="link.icon" />
             </v-avatar>
           </template>
+
           <template #append>
             <v-icon
               class="ml-1 opacity-0 transition group-hover:opacity-90 group-hover:-translate-x-1"
               icon="$open-external"
             />
           </template>
+
           <template #subtitle>
             <div class="line-clamp-2 text-wrap">{{ link.subtitle }}</div>
           </template>
@@ -132,8 +135,8 @@ meta:
 </template>
 
 <script setup lang="ts">
-import { useI18nPrefix } from '@/composables/useI18nPrefix'
 import { toast } from 'vue3-toastify'
+import { useI18nPrefix } from '@/composables/useI18nPrefix'
 
 type LinkItem = {
   href: string

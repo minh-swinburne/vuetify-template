@@ -24,6 +24,7 @@
         >
           V
         </div>
+
         <span
           v-show="isDrawerExpanded"
           class="whitespace-nowrap text-sm font-semibold text-on-surface"
@@ -47,6 +48,7 @@
               @click="closeMobileDrawer"
             >
               <v-icon class="shrink-0" :icon="item.icon" />
+
               <span
                 v-show="isDrawerExpanded"
                 class="whitespace-nowrap text-sm font-medium"
@@ -90,11 +92,11 @@
           class="app-search ml-4 hidden max-w-120 md:block"
           clearable
           density="compact"
+          flat
           hide-details
           placeholder="Search pages..."
           prepend-inner-icon="$search"
           variant="solo"
-          flat
         />
 
         <v-spacer />
@@ -106,6 +108,7 @@
           <template #activator="{ props }">
             <v-btn icon="$notify" v-bind="props" rounded="full" />
           </template>
+
           <v-list density="comfortable" min-width="220">
             <v-list-item title="No new notifications" />
           </v-list>
@@ -115,6 +118,7 @@
           <template #activator="{ props }">
             <v-btn icon="$user-circle" v-bind="props" rounded="full" />
           </template>
+
           <v-list density="comfortable" min-width="220">
             <v-list-item prepend-icon="$user-profile" title="Profile" />
             <v-list-item prepend-icon="$preferences" title="Preferences" />
@@ -135,6 +139,7 @@
                 class="text-2xl mr-2"
                 :icon="pageInfo.icon"
               />
+
               <h1 class="my-0 text-2xl font-heading font-semibold">
                 {{ pageInfo.title }}
               </h1>

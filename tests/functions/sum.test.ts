@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { sum } from '../src/functions/sum'
+import { sum } from '@/functions/sum'
 
 describe('sum', () => {
   it('adds two numbers', () => {

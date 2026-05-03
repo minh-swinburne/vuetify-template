@@ -1,7 +1,7 @@
-// Utilities
-import { defaultThemeName } from '@/plugins/vuetify'
 import { usePreferredDark } from '@vueuse/core'
 import { defineStore } from 'pinia'
+// Utilities
+import { defaultThemeName } from '@/plugins/vuetify'
 
 type ThemeMode = 'light' | 'dark' | 'system'
 type LocaleCode = 'en' | 'ja' | 'vi'

@@ -23,7 +23,11 @@ watch(
 watch(
   () => appStore.resolvedTheme,
   (theme) => {
-    vuetify.theme.global.name.value = theme
+    if (typeof vuetify.theme.change === 'function') {
+      vuetify.theme.change(theme)
+    } else {
+      vuetify.theme.global.name.value = theme
+    }
   },
   { immediate: true },
 )

@@ -22,6 +22,7 @@
         <v-col class="hidden lg:flex auth-visual" cols="12" lg="6">
           <div class="auth-visual-inner">
             <h2 class="text-4xl font-heading mb-4">Welcome Back</h2>
+
             <p class="text-body-1 text-medium-emphasis max-w-130">
               Secure authentication space for login, sign up, and password
               recovery.

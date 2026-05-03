@@ -3,12 +3,12 @@ import Vue3Toastify, {
   toast,
   type ToastContainerOptions,
 } from 'vue3-toastify'
-import 'vue3-toastify/dist/index.css'
 import IconMdiAlertOutline from '~icons/mdi/alert-outline'
 import IconMdiBellRingOutline from '~icons/mdi/bell-ring-outline'
 import IconMdiCheckCircleOutline from '~icons/mdi/check-circle-outline'
 import IconMdiCloseOctagonOutline from '~icons/mdi/close-octagon-outline'
 import IconMdiInformationSlabBoxOutline from '~icons/mdi/information-slab-box-outline'
+import 'vue3-toastify/dist/index.css'
 
 function iconNode(icon: object, color: string) {
   return h(icon, {

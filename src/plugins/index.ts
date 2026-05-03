@@ -11,10 +11,10 @@ import type { App } from 'vue'
 import { createHead } from '@unhead/vue/client'
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-import vuetify from './vuetify'
 import router from '../router'
 import i18n from './i18n'
 import toastify, { toastifyOptions } from './toastify'
+import vuetify from './vuetify'
 
 export function registerPlugins(app: App) {
   const pinia = createPinia()
