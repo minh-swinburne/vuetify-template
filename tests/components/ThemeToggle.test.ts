@@ -27,6 +27,8 @@ describe('ThemeToggle', () => {
 
     // trigger click cycleTheme
     const spy = vi.spyOn(store, 'cycleTheme')
-    await store.cycleTheme() // testing store func separately covers it anyway
+    await wrapper.vm.$nextTick()
+    await wrapper.find('button.v-btn').trigger('click')
+    expect(spy).toHaveBeenCalled()
   })
 })

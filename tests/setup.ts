@@ -33,4 +33,19 @@ if (typeof window !== 'undefined') {
     unobserve() {}
     disconnect() {}
   }
+
+  if (!window.visualViewport) {
+    window.visualViewport = {
+      width: window.innerWidth,
+      height: window.innerHeight,
+      offsetLeft: 0,
+      offsetTop: 0,
+      pageLeft: 0,
+      pageTop: 0,
+      scale: 1,
+      addEventListener: () => {},
+      removeEventListener: () => {},
+      dispatchEvent: () => true,
+    } as any
+  }
 }

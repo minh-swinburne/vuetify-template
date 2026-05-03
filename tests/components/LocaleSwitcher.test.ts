@@ -14,20 +14,14 @@ describe('LocaleSwitcher', () => {
     expect(store.locale).toBe('en') // default
 
     const wrapper = mount(LocaleSwitcher)
-
-    // We can interact with component
-    // But mostly we just check the computed property and setting store value
-
-    // since accessing component directly requires finding internal state, we can simulate change by directly writing to localeModel
     const setSpy = vi.spyOn(store, 'setLocale')
 
-    // Trigger v-model update
-    wrapper.vm.localeModel = 'ja'
+    // Trigger v-model update from template to cover line 3
+    await wrapper
+      .findComponent({ name: 'VBtnToggle' })
+      .vm.$emit('update:modelValue', 'ja')
 
     expect(setSpy).toHaveBeenCalledWith('ja')
     expect(store.locale).toBe('ja')
-
-    // Check computed getter
-    expect(wrapper.vm.localeModel).toBe('ja')
   })
 })
