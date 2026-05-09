@@ -4,14 +4,28 @@
  * Automatically included in `./src/main.ts`
  */
 
-// Plugins
-import vuetify from './vuetify'
-import pinia from '../stores'
-import router from '../router'
-
 // Types
 import type { App } from 'vue'
 
+// Plugins
+import { createHead } from '@unhead/vue/client'
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+import router from '../router'
+import i18n from './i18n'
+import toastify, { toastifyOptions } from './toastify'
+import vuetify from './vuetify'
+
 export function registerPlugins(app: App) {
-  app.use(vuetify).use(router).use(pinia)
+  const pinia = createPinia()
+  pinia.use(piniaPluginPersistedstate)
+
+  const head = createHead()
+
+  app.use(vuetify)
+  app.use(pinia)
+  app.use(i18n)
+  app.use(head)
+  app.use(router)
+  app.use(toastify, toastifyOptions)
 }

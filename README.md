@@ -1,42 +1,42 @@
 # Vuetify Vue 3 Template
 
-A modern Vue 3 project template featuring Vuetify, Vite, TypeScript, Pinia, Vue Router, TailwindCSS, Vitest, Playwright, ESLint, Prettier, Husky, and more.
+A modern Vue 3 project template featuring Vuetify 4, Vite, TypeScript, Pinia, Vue Router, TailwindCSS, vue-i18n, and more.
 
 ## Tech Stack
 
 - **[Vue 3](https://vuejs.org/)** – Progressive JavaScript framework
 - **[Vite](https://vitejs.dev/)** – Lightning-fast build tool
 - **[TypeScript](https://www.typescriptlang.org/)** – Typed JavaScript
-- **[Vuetify](https://vuetifyjs.com/)** – Material Design UI component framework
+- **[Vuetify 4](https://vuetifyjs.com/)** – Material Design UI component framework
 - **[Pinia](https://pinia.vuejs.org/)** – State management
-- **[Vue Router](https://router.vuejs.org/)** – Routing & File-based routing with unplugin-vue-router merged (vue-router 5+)
-- **[VueUse](https://vueuse.org/)** – Collection of essential Vue Composition Utilities (included)
+- **[Vue Router](https://router.vuejs.org/)** – Routing with file-based route generation via `unplugin-vue-router`
+- **[vue-i18n](https://vue-i18n.intlify.dev/)** – Internationalization
 - **[TailwindCSS](https://tailwindcss.com/)** – Utility-first CSS framework
 - **[Vitest](https://vitest.dev/)** – Unit testing
-- **[Playwright](https://playwright.dev/)** – E2E testing
+- **[vue3-toastify](https://vue3-toastify.js-bridge.com/)** – Toast notifications
 - **[ESLint](https://eslint.org/)** – Linting
 - **[Prettier](https://prettier.io/)** – Code formatting
-- **[Husky](https://typicode.github.io/husky/)** – Git hooks
-- **[Unplugin](https://unplugin.unjs.io/)** - Unified plugin system, including:
-  - **[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)** – Auto-imports for APIs
+- **[Unplugin](https://unplugin.unjs.io/)** – Unified plugin system, including:
+  - **[unplugin-auto-import](https://github.com/antfu/unplugin-auto-import)** – Auto-imports for Vue, Router, Pinia APIs
   - **[unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)** – Auto-import Vue components
-  <!-- - **[unplugin-vue-router](https://github.com/posva/unplugin-vue-router)** – File-based routing -->
+  - **[unplugin-vue-router](https://github.com/posva/unplugin-vue-router)** – File-based routing (Merged into Vue Router 5+)
+  - **[@intlify/unplugin-vue-i18n](https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n)** – Locale message pre-compilation (AOT) plugin for vue-i18n
 - **[vite-plugin-vue-layouts-next](https://github.com/loicduong/vite-plugin-vue-layouts-next)** – File-based layouts
 - **[SASS/SCSS](https://sass-lang.com/)** – CSS preprocessor
 - **[Fontsource/Roboto](https://fontsource.org/fonts/roboto)** – Self-hosted fonts
 
 ## Features
 
-- Out-of-the-box Material Design UI with Vuetify
+- Out-of-the-box Material Design UI with Vuetify 4
 - Utility-first styling with TailwindCSS
 - Type-safe development with TypeScript
-- Auto-imports for Vue, Pinia, Router, and components
+- Auto-imports for Vue, Pinia, Router APIs and components
 - File-based routing and layouts
-- VueUse utilities available out of the box
+- Internationalization with vue-i18n
+- Toast notifications with vue3-toastify
 - Unit testing with Vitest (put tests in `./tests`)
-- E2E testing with Playwright (put tests in `./e2e`)
-- Linting and formatting with ESLint and Prettier
-- Git hooks with Husky
+- Linting with ESLint
+- Code formatting with Prettier
 - Ready for rapid prototyping and scalable apps
 
 ## Getting Started
@@ -87,11 +87,24 @@ npm run build
 npm run preview
 ```
 
-### Lint & Format
+### Lint
 
 ```bash
-npm run lint      # Lint and auto-fix
-npm run format    # Format code with Prettier
+npm run lint      # Lint
+npm run lint:fix  # Lint and auto-fix
+```
+
+### Format
+
+```bash
+npm run format        # Format code
+npm run format:check  # Check code formatting
+```
+
+### CI
+
+```bash
+npm run ci  # Run format check, lint, tests, and build
 ```
 
 ### Type Check
@@ -109,49 +122,27 @@ npm run type-check
 npm run test:unit
 ```
 
-### E2E Testing (Playwright)
-
-- Place your E2E tests in the `./e2e` directory.
-
-```bash
-npm run test:e2e
-```
-
-### Git Hooks (Husky)
-
-- Husky is set up to manage Git hooks. Customize hooks in the `.husky/` directory.
-
 ## Project Structure
 
 ```text
 <root>
-├── .husky/                # Husky git hooks (pre-commit, etc.)
-├── e2e/                   # Playwright E2E tests (create if missing)
-├── node_modules/
-├── public/
+├── public/                # Static assets (SVG logos, favicon)
 ├── src/
-│   ├── assets/            # Static assets
+│   ├── assets/            # Static assets (images, etc.)
 │   ├── components/        # Vue components (auto-imported)
 │   ├── functions/         # Business logic/functions to be unit tested
 │   ├── layouts/           # App layouts (auto-detected)
 │   ├── pages/             # File-based routing (auto-detected)
-│   ├── plugins/           # Global plugins (Vuetify, Pinia, Router)
-│   ├── router/            # Router config (auto-generated)
+│   ├── plugins/           # Global plugins (Vuetify, Pinia, Router, i18n, Toastify)
+│   ├── router/            # Router config
 │   ├── stores/            # Pinia stores
 │   ├── styles/            # Tailwind, Vuetify, and custom styles
 │   └── main.ts            # App entry point
-├── tests/                 # Unit tests for src/functions (create if missing)
-├── .editorconfig
-├── .eslintrc-auto-import.json
-├── .gitignore
-├── .prettierrc.json
+├── tests/                 # Unit tests for src/functions
 ├── index.html
-├── LICENSE
 ├── package.json
-├── README.md
-├── tailwind.config.js     # (create if customizing Tailwind)
 ├── tsconfig.json
-├── vite.config.ts
+├── vite.config.mts
 ├── vitest.config.ts
 └── ...
 ```
@@ -164,7 +155,7 @@ Edit `src/plugins/vuetify.ts` and `src/styles/settings.scss` to customize the de
 
 ### Using TailwindCSS
 
-Use Tailwind utility classes in your templates. Tailwind is configured in `src/styles/main.css` and can be customized via `tailwind.config.js` (add this file if you need custom config).
+Use Tailwind utility classes in your templates. Tailwind is configured in `src/styles/tailwind.scss`.
 
 ### Adding New Pages
 
@@ -178,11 +169,37 @@ Add `.vue` files to `src/layouts/` and use the `definePageMeta` block in your pa
 
 Create new stores in `src/stores/` using Pinia. See the [Pinia Docs](https://pinia.vuejs.org/).
 
+### Internationalization
+
+Locale messages live in `src/locales/` as YAML files, mirroring the `src/components/` and `src/pages/` structure. Each folder corresponds to exactly one component or page, and contains one YAML file per language:
+
+```text
+src/locales/
+├── components/         # Mirrors src/components/
+│   └── MyComponent/
+│       ├── en.yaml
+│       └── vi.yaml
+└── pages/              # Mirrors src/pages/
+    └── index/          # Corresponds to src/pages/index.vue
+        ├── en.yaml
+        ├── ja.yaml
+        └── vi.yaml
+```
+
+`@intlify/unplugin-vue-i18n` pre-compiles all YAML files at build time. Since files across all folders are merged into the same locale namespace per language, it is recommended to wrap keys in a top-level namespace to avoid collisions:
+
+```yaml
+# locales/components/MyComponent/en.yaml
+components:
+  myComponent:
+    title: My Component
+```
+
+Then access it as `t('components.myComponent.title')` in the component. Add new locales by adding a new `<lang>.yaml` file in the relevant folder. See the [vue-i18n Docs](https://vue-i18n.intlify.dev/).
+
 ### Testing
 
 Vitest is set up for unit testing. Place your tests in `tests/`. Functions to be tested should be in `src/functions/`.
-
-Playwright is set up for E2E testing. Place your tests in `e2e/`.
 
 ## Useful Links
 
@@ -191,18 +208,19 @@ Playwright is set up for E2E testing. Place your tests in `e2e/`.
 - [Vite Documentation](https://vitejs.dev/)
 - [Pinia Documentation](https://pinia.vuejs.org/)
 - [Vue Router Documentation](https://router.vuejs.org/)
+- [vue-i18n Documentation](https://vue-i18n.intlify.dev/)
 - [TailwindCSS Documentation](https://tailwindcss.com/)
 - [Vitest Documentation](https://vitest.dev/)
-- [Playwright Documentation](https://playwright.dev/)
 - [ESLint Documentation](https://eslint.org/)
 - [Prettier Documentation](https://prettier.io/)
-- [Husky Documentation](https://typicode.github.io/husky/)
 
 ## Useful Utility Packages
 
-Here are some recommended Vue 3 utility packages you may find helpful:
+Here are some recommended packages you may find helpful for extending this template:
 
-- [vue3-toastify](https://vue3-toastify.js.org/) – Toast notifications
+- [VueUse](https://vueuse.org/) – Collection of essential Vue Composition Utilities
+- [Playwright](https://playwright.dev/) – E2E testing
+- [Husky](https://typicode.github.io/husky/) – Git hooks
 - [vue3-marquee](https://github.com/megasanjay/vue3-marquee) – Marquee/scrolling text
 - [vue3-carousel](https://ismail9k.github.io/vue3-carousel/) – Flexible, responsive carousel
 - [vue3-lottie](https://github.com/chenxuan0000/vue3-lottie) – Lottie animations for Vue 3
@@ -222,7 +240,8 @@ Feel free to add more packages as your project grows!
 
 ## Notes
 
-- For pre-commit hooks, Husky is set up. For staged linting/formatting, consider [lint-staged](https://github.com/okonet/lint-staged).
+- For pre-commit hooks, consider adding [Husky](https://typicode.github.io/husky/) with [lint-staged](https://github.com/okonet/lint-staged).
+- For E2E testing, consider adding [Playwright](https://playwright.dev/).
 - If you use GitHub, consider adding a CI workflow for linting, testing, and building.
 
 ---

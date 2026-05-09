@@ -1,0 +1,49 @@
+@layer vuetify-overrides {
+  code,
+  pre,
+  .v-code {
+    font-family: var(--font-mono);
+  }
+
+  .v-btn,
+  .v-field,
+  .v-list,
+  .v-menu > .v-overlay__content {
+    border-radius: var(--radius-lg);
+  }
+
+  .v-list {
+    padding: 8px;
+
+    .v-list-item {
+      border-radius: var(--radius-md);
+    }
+  }
+
+  .v-input.no-details .v-input__details {
+    display: none;
+  }
+
+  .v-label {
+    overflow: visible;
+    /* Fixes label text being cut off when it overflows the input field */
+  }
+}
+
+:root.font-scale-sm {
+  font-size: 14px;
+}
+
+:root.font-scale-md {
+  font-size: 16px;
+}
+
+:root.font-scale-lg {
+  font-size: 18px;
+}
+
+:root.contrast-high {
+  --v-high-emphasis-opacity: 1;
+  --v-medium-emphasis-opacity: 0.9;
+  --v-disabled-opacity: 0.5;
+}

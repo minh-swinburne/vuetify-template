@@ -1,0 +1,38 @@
+pages:
+  index:
+    heading:
+      subtitle: Welcome to
+      title: Vuetify 4
+
+    message:
+      hello: Hello, World
+
+    toast:
+      button: Toast!
+      select:
+        label: Toast Type
+        placeholder: Select a toast type
+        default: Default
+        loading: Loading
+        success: Success
+        warning: Warning
+        error: Error
+        info: Info
+
+    card:
+      hero:
+        title: Getting Started
+        subtitle: Change this page by updating {file}.
+      grid:
+        doc:
+          title: Documentation
+          subtitle: Learn about all things Vuetify in our documentation.
+        feat:
+          title: Features
+          subtitle: Explore available framework Features.
+        comp:
+          title: Components
+          subtitle: Discover components in the API Explorer.
+        cmty:
+          title: Community
+          subtitle: Connect with Vuetify developers.
