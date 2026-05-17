@@ -15,7 +15,7 @@ import App from './App.vue'
 
 // Styles
 import 'unfonts.css'
-import './styles/tailwind.scss'
+import './styles/tailwind.css'
 import './styles/toastify.scss'
 import './styles/main.scss'
 

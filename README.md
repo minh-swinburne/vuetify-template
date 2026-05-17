@@ -155,7 +155,7 @@ Edit `src/plugins/vuetify.ts` and `src/styles/settings.scss` to customize the de
 
 ### Using TailwindCSS
 
-Use Tailwind utility classes in your templates. Tailwind is configured in `src/styles/tailwind.scss`.
+Use Tailwind utility classes in your templates. Tailwind is configured in `src/styles/tailwind.css`.
 
 ### Adding New Pages
 
