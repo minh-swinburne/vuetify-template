@@ -23,7 +23,7 @@ A modern Vue 3 project template featuring Vuetify 4, Vite, TypeScript, Pinia, Vu
   - **[@intlify/unplugin-vue-i18n](https://github.com/intlify/bundle-tools/tree/main/packages/unplugin-vue-i18n)** – Locale message pre-compilation (AOT) plugin for vue-i18n
 - **[vite-plugin-vue-layouts-next](https://github.com/loicduong/vite-plugin-vue-layouts-next)** – File-based layouts
 - **[SASS/SCSS](https://sass-lang.com/)** – CSS preprocessor
-- **[Fontsource/Roboto](https://fontsource.org/fonts/roboto)** – Self-hosted fonts
+- **[Fontsource](https://fontsource.org/)** – Self-hosted fonts
 
 ## Features
 

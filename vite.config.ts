@@ -72,12 +72,23 @@ export default defineConfig({
       fontsource: {
         families: [
           {
-            name: 'Roboto Mono',
-            weights: [400, 700],
+            name: 'Montserrat',
+            weights: [300, 400, 500, 600, 700, 800],
+            styles: ['normal', 'italic'],
+          },
+          {
+            name: 'Audiowide',
+            weights: [400],
+            styles: ['normal'],
           },
           {
             name: 'Roboto',
             weights: [100, 300, 400, 500, 700, 900],
+            styles: ['normal', 'italic'],
+          },
+          {
+            name: 'JetBrains Mono',
+            weights: [400, 700],
             styles: ['normal', 'italic'],
           },
         ],

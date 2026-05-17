@@ -4,9 +4,10 @@
 
 @theme {
   /* Fonts */
-  --font-heading: 'Roboto', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-brand: 'Audiowide', sans-serif;
   --font-body: 'Roboto', sans-serif;
-  --font-mono: 'Roboto Mono', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
 
   /* Color Theme */
   --color-background: rgb(var(--v-theme-background));
@@ -59,6 +60,7 @@
 
 /* safelist to ensure variables are always available */
 @source inline('font-heading');
+@source inline('font-brand');
 @source inline('font-body');
 @source inline('font-mono');
 
